@@ -1,0 +1,44 @@
+%h1
+  Listings
+
+%table
+  %tr
+    %th
+      Name
+    %th
+      Author
+    %th
+      Status
+    %th
+      Description
+    %th
+      Category
+    %th
+      &nbsp;
+
+  - @item.each do |item|
+    %tr
+      %td
+        = item.name
+      %td
+        = item.author
+      %td
+        -if item.loaned
+          Loaned
+        -else
+          Available
+      %td
+        = item.description
+      %td
+        = item.sub_category.name
+      %td
+        - if not item.loaned?
+          - if not session[:cart].nil? and session[:cart][item.id]
+            %a{ :href=>"/cart/#{item.id}/remove"}
+              Cancel
+          - else
+            %a{ :href=>"/cart/#{item.id}"}
+              Put In Cart
+        - else
+          Loaned
+%br

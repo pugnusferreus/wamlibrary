@@ -1,0 +1,25 @@
+.field
+  = form.label :name
+  %br
+  = form.text_field :name
+
+.field
+  = form.label :author
+  %br
+  = form.text_field :author
+
+.field
+  = form.label :description
+  %br
+  = form.text_area :description
+
+.field
+  = form.label :category
+  %br
+  = collection_select(:item, :sub_category_id, SubCategory.all, :id, :name, {:prompt => "Please select a sub category"})
+
+.field
+  = form.label :active
+  %br
+  %input{:type=>"checkbox",:id=>"active",:name=>"item[active]",:value=> "true",:checked=>@item.active}
+

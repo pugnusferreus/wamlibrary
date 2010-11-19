@@ -1,0 +1,28 @@
+%h1
+  Edit Item
+
+- form_for(@item) do |f|
+  - if @item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@item.errors.count, "error")
+        prohibited this post from being saved:
+
+      %ul
+        - @item.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  = render :partial => "form", :object => f
+
+  %p
+    = f.submit 'Update'
+    
+    
+
+      
+%p
+  = link_to 'Show', @item
+  |
+  = link_to 'Back', items_path
+

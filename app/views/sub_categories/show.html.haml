@@ -1,0 +1,22 @@
+%p{ :id => "notice"}
+  = notice
+
+%p
+  %b
+    Name:
+  = @sub_category.name
+
+%p
+  %b
+    Description:
+  = @sub_category.description
+
+
+%p
+  %b
+    Category:
+  = @sub_category.category.name
+
+= link_to 'Edit', edit_sub_category_path(@sub_category) 
+|
+= link_to 'Back', sub_categories_path

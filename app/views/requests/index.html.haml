@@ -1,0 +1,17 @@
+%h1
+  Requests
+
+- @requests.each do |request|
+  = request.item.name
+  %a{ :href=>"/requests/#{request.id}/accept"}
+    Accept
+  |
+  %a{ :href=>"/requests/#{request.id}/reject"}
+    Reject
+  %ul
+    %li
+      requested by
+      = request.requester
+    %li
+      at
+      = request.created_at

@@ -1,0 +1,17 @@
+%h1
+  Check Out
+
+- if @item.nil?
+  No item to check out
+- else
+  - @item.each do |item|
+    - if not item.loaned?
+      = item.name
+    - else
+      Oops! The item 
+      = item.name 
+      has been loaned
+    %br
+
+%br
+

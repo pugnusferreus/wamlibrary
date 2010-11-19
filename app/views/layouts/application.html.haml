@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+%html
+  %head
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+
+  %body
+    - if not current_user.nil?
+      %p
+        You're currently logged in with
+        = current_user.email
+    %p{:class => "notice"}
+      = notice
+    %p{:class => "alert"}
+      = alert
+
+    = yield
