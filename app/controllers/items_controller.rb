@@ -80,4 +80,13 @@ class ItemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def return
+    item = Item.find(params[:id])
+    Log.create("requester" => item.loaned_by, "item" => item.id, "log_type" => Log::RETURN)
+    Item.update(item.id, {:loaned => false, :loaned_by => nil, :loaned_date => nil, :updated_at => Time.now })
+    respond_to do |format|
+      format.html { redirect_to items_path }
+    end
+  end
 end

@@ -3,15 +3,19 @@
 
 - @requests.each do |request|
   = request.item.name
-  %a{ :href=>"/requests/#{request.id}/accept"}
-    Accept
-  |
+  - if not request.item.loaned?
+    %a{ :href=>"/requests/#{request.id}/accept"}
+      Accept
+  - else
+    %b
+      This item has already been loaned
+    |
   %a{ :href=>"/requests/#{request.id}/reject"}
     Reject
   %ul
     %li
       requested by
-      = request.requester
+      = request.requester_full_name
     %li
       at
       = request.created_at

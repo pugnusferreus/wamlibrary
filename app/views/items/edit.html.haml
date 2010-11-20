@@ -18,8 +18,21 @@
   %p
     = f.submit 'Update'
     
-    
+%hr
 
+- if @item.loaned?
+  Loaned
+  %ul
+    %li
+      By
+      = @item.loaned_by
+    %li
+      Date Loaned
+      = @item.loaned_date
+  %a{ :href=>"/items/#{@item.id}/return"}
+    Return
+- else
+  Available
       
 %p
   = link_to 'Show', @item

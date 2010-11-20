@@ -6,7 +6,11 @@ Wamlibrary::Application.routes.draw do
 
   resources :sub_categories
 
-  resources :items
+  resources :items do
+    member do
+      get 'return'
+    end
+  end
 
   resources :categories
   
