@@ -1,44 +1,28 @@
 %h1
   Listings
 
-%table
-  %tr
-    %th
-      Name
-    %th
-      Author
-    %th
-      Status
-    %th
-      Description
-    %th
-      Category
-    %th
-      &nbsp;
-
-  - @item.each do |item|
+%input{ :type => "hidden", :id => "sub_category_id", :value =>"#{@list.sub_category_id}"}
+%table{:id => "list_table", :class => "display"}
+  %thead
     %tr
-      %td
-        = item.name
-      %td
-        = item.author
-      %td
-        -if item.loaned
-          Loaned
-        -else
-          Available
-      %td
-        = item.description
-      %td
-        = item.sub_category.name
-      %td
-        - if not item.loaned?
-          - if not session[:cart].nil? and session[:cart][item.id]
-            %a{ :href=>"/cart/#{item.id}/remove"}
-              Cancel
-          - else
-            %a{ :href=>"/cart/#{item.id}"}
-              Put In Cart
-        - else
-          Loaned
+      %th
+        Name
+      %th
+        Author
+      %th
+        Status
+      %th
+        Description
+      %th
+        Category
+      %th
+        &nbsp;
+  %tbody
+    %tr
+      %td{ :colspan => "6" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "6"}
+        &nbsp;
 %br

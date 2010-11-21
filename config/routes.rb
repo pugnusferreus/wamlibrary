@@ -33,8 +33,7 @@ Wamlibrary::Application.routes.draw do
   
   resources :listings do
     member do
-      get 'borrow'
-      get 'cancel'
+      get 'tojson'
     end
   end
 
