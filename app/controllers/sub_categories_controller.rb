@@ -1,4 +1,5 @@
 class SubCategoriesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /sub_categories
   # GET /sub_categories.xml
   def index
