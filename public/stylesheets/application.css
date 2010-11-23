@@ -60,15 +60,40 @@ div.field, div.actions {
 }
 
 #content {
- margin-left: 50px ;
- margin-right: 50px ;
-
+  margin-left: 50px ;
+  margin-right: 50px ;
+  position: absolute;
+  margin-top: 40px;
  /* border: #666666 1px solid; */
 }
 
 #login_form {
-  margin-top: 100px;
+  margin-top: 40px;
   width: 360px;
   margin-left: auto ;
   margin-right: auto ;
+  position: relative;
+}
+
+#header_content {
+  margin-left: 2px;
+  margin-right: 2px;
+
+}
+
+#login_section {
+  float: left;  
+	position: inherit;
+}
+
+#checkout_section {
+  float: right;
+	position: relative;
+}
+
+.main_menu ul {
+}
+
+.main_menu li {
+	list-style-position: outside;
 }
