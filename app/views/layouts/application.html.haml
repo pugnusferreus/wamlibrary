@@ -7,11 +7,17 @@
 
   %body
     - if not current_user.nil?
-      %p
-        You're currently logged in with
-        = current_user.full_name
-      %p
-        %a{ :href=>"/cart/"}
-          Check Out
+      #header_content
+        #login_section
+          You're currently logged in with #{current_user.full_name}
+          %br
+          %a{ :href=>"/users/sign_out"}
+            Sign Out
+          |
+          %a{ :href=>"/"}
+            Home
+        #checkout_section
+          %a{ :href=>"/cart/"}
+            Check Out
     #content
       = yield
