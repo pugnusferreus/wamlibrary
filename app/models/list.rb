@@ -11,9 +11,7 @@ class List
   
   def to_data_table(cart)
     
-    data_table = {"sEcho" => 1}
-    data_table["iTotalRecords"] = @item.count
-    data_table["iTotalDisplayRecords"] = @item.count
+    data_table = {"sEcho" => 1, "iTotalRecords" => @item.count, "iTotalDisplayRecords" => @item.count}
     
     item_array = Array.new
     
