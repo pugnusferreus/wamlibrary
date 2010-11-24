@@ -3,10 +3,6 @@
     Members Sign In
 
   - form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %p{:class => "notice"}
-      = notice
-    %p{:class => "alert"}
-      = alert
     %p
       = f.label :email
       %br

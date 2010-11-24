@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :is_admin
   # GET /items
   # GET /items.xml
   def index

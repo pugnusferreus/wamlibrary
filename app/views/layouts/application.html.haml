@@ -20,4 +20,8 @@
           %a{ :href=>"/cart/"}
             Check Out
     #content
+      %p{:class => "notice"}
+        = notice
+      %p{:class => "alert"}
+        = alert
       = yield

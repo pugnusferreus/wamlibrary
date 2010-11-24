@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :is_admin
+  
   def index
     @requests = Request.find(:all, :order => "item_id")
   end
