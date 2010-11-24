@@ -11,3 +11,18 @@
             = link_to sub_category.name, :controller => "listings", :action => "show", :id => sub_category
 
     %br
+
+- if current_user.admin?
+  %hr
+  %h1
+    Admin Menu
+  
+  %ul
+    %li
+      = link_to "Categories", :controller => "categories", :action => "index"
+    %li
+      = link_to "Sub Categories", :controller => "sub_categories", :action => "index"
+    %li
+      = link_to "Items", :controller => "items", :action => "index"
+    %li
+      = link_to "Requests", :controller => "requests", :action => "index"

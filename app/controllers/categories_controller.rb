@@ -11,6 +11,24 @@ class CategoriesController < ApplicationController
       format.xml  { render :xml => @categories }
     end
   end
+  
+  def tojson
+    @categories = Category.all
+    data_table = {"sEcho" => 1, "iTotalRecords" => @categories.count, "iTotalDisplayRecords" => @categories.count}
+    categories_array = Array.new
+    
+    @categories.each do |category|
+      row = Array.new(5)
+      row[0] = category.name
+      row[1] = category.description
+      row[2] = "<a href='/categories/#{category.id}'>Show</a>"
+      row[3] = "<a href='/categories/#{category.id}/edit'>Edit</a>"
+      row[4] = "<a rel='nofollow' data-method='delete' data-confirm='Are you sure?' href='/categories/#{category.id}'>Destroy</a>"
+      categories_array.push row
+    end
+    data_table["aaData"] = categories_array
+    render :json => data_table
+  end
 
   # GET /categories/1
   # GET /categories/1.xml

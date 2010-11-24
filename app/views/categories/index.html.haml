@@ -1,31 +1,27 @@
+= javascript_include_tag 'page_related/categories'
 %h1
   Listing categories
 
-%table
-  %tr
-    %th
-      Name
-    %th
-      Description
-    %th
-      &nbsp;
-    %th
-      &nbsp;
-    %th
-      &nbsp;
-
-  - @categories.each do |category|
+%table{:id => "list_table", :class => "display"}
+  %thead
     %tr
-      %td
-        = category.name
-      %td
-        = category.description
-      %td
-        =link_to 'Show', category
-      %td
-        = link_to 'Edit', edit_category_path(category)
-      %td
-        = link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete
+      %th
+        Name
+      %th
+        Description
+      %th
+        &nbsp;
+      %th
+        &nbsp;
+      %th
+        &nbsp;
+  %tbody
+    %tr
+      %td{ :colspan => "5" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "5"}
 
 %br
 

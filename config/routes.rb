@@ -12,7 +12,11 @@ Wamlibrary::Application.routes.draw do
     end
   end
 
-  resources :categories
+  resources :categories do
+    collection do
+      get 'tojson'
+    end
+  end
   
   resources :requests do
     member do
