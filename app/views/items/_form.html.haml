@@ -1,12 +1,13 @@
+
 .field
   = form.label :name
   %br
-  = form.text_field :name
+  = form.text_field :name, :class => "required"
 
 .field
   = form.label :author
   %br
-  = form.text_field :author
+  = form.text_field :author, :class => "required"
 
 .field
   = form.label :description
@@ -16,7 +17,7 @@
 .field
   = form.label :category
   %br
-  = collection_select(:item, :sub_category_id, SubCategory.all, :id, :name, {:prompt => "Please select a sub category"})
+  = collection_select(:item, :sub_category_id, SubCategory.all, :id, :name, {:prompt => "Please select a sub category"}, :class => "required")
 
 .field
   = form.label :active

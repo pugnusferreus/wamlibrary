@@ -7,8 +7,8 @@ $(document).ready(function() {
     "iDisplayLength": 25,
     "bServerSide": false,
     "sPaginationType": "full_numbers",
-    "sAjaxSource": "/categories/tojson",
-    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "250px"},{ "bSortable": false, "bVisible": true,"sWidth": "50px" },{ "bSortable": false, "bVisible": true,"sWidth": "50px" }]
+    "sAjaxSource": "/sub_categories/tojson",
+    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "150px"},{"sWidth": "250px"},{ "bSortable": false, "bVisible": true,"sWidth": "50px" },{ "bSortable": false, "bVisible": true,"sWidth": "50px" }]
   } );
 
   $("#list_table_length").hide();

@@ -1,7 +1,10 @@
+= javascript_include_tag 'page_related/categories'
+
 .field
   = form.label :name
+  *
   %br
-  = form.text_field :name
+  = form.text_field :name, :class => "required"
   
 .field
   = form.label :description

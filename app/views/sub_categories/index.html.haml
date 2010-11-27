@@ -1,34 +1,27 @@
+= javascript_include_tag 'page_related/sub_categories'
 %h1
-  Listing sub_categories
+  Sub Categories
 
-%table
-  %tr
-    %th
-      Name
-    %th
-      Description
-    %th
-      Category
-    %th
-      &nbsp;
-    %th
-      &nbsp;
-    %th
-      &nbsp;
 
-  - @sub_categories.each do |sub_category|
+%table{:id => "list_table", :class => "display"}
+  %thead
     %tr
-      %td
-        = sub_category.name
-      %td
-        = sub_category.description
-      %td
-        = sub_category.category.name
-      %td
-        = link_to 'Show', sub_category
-      %td
-        = link_to 'Edit', edit_sub_category_path(sub_category)
-      %td
-        = link_to 'Destroy', sub_category, :confirm => 'Are you sure?', :method => :delete
+      %th
+        Name
+      %th
+        Description
+      %th
+        Category
+      %th
+        &nbsp;
+      %th
+        &nbsp;
+  %tbody
+    %tr
+      %td{ :colspan => "5" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "5"}
 %br
 = link_to 'New Sub category', new_sub_category_path
