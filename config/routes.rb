@@ -8,7 +8,6 @@ Wamlibrary::Application.routes.draw do
     collection do
         get 'tojson'
     end
-
   end
 
   resources :items do
@@ -28,6 +27,9 @@ Wamlibrary::Application.routes.draw do
   end
   
   resources :requests do
+    collection do
+      get 'tojson'
+    end
     member do
       get 'accept'
       get'reject'
@@ -37,6 +39,7 @@ Wamlibrary::Application.routes.draw do
   resources :cart do
     collection do
       get 'checkout'
+      get 'tojson'
     end
     member do
       get 'create'

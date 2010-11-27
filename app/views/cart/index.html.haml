@@ -1,17 +1,30 @@
+= javascript_include_tag 'page_related/carts'
 %h1
   Check Out
 
-- if @item.nil?
+- if @item.nil? or @item.count < 1
   No item to check out
 - else
-  - @item.each do |item|
-    - if not item.loaned?
-      = item.name
-    - else
-      Oops! The item 
-      = item.name 
-      has been loaned
-    %br
+  %table{:id => "list_table", :class => "display"}
+    %thead
+      %tr
+        %th
+          Name
+        %th
+          Author
+        %th
+          Description
+        %th
+          &nbsp;
+
+    %tbody
+      %tr
+        %td{ :colspan => "4" }
+          Loading data from server
+    %tfoot
+      %tr
+        %td{ :colspan => "4"}
+
   %a{ :href=>"/cart/checkout"}
     Confirm Check Out 
 %br

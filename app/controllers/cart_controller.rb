@@ -7,6 +7,29 @@ class CartController < ApplicationController
     end
   end
   
+  def tojson
+    if not session[:cart].nil?
+      cart = session[:cart]
+      @items = Item.find_all_by_id(cart.keys)
+      data_table = {"sEcho" => 1, "iTotalRecords" => @items.count, "iTotalDisplayRecords" => @items.count}
+      cart_array = Array.new
+
+      @items.each do |item|
+        row = Array.new(4)
+        row[0] = item.name
+        row[1] = item.author
+        row[2] = item.description
+        row[3] = "<a href='/cart/#{item.id}/remove?fromcart=true'>Remove From Cart</a>"
+        cart_array.push row
+      end
+      data_table["aaData"] = cart_array
+      render :json => data_table
+    else
+      data_table = {"sEcho" => 1, "iTotalRecords" => 0, "iTotalDisplayRecords" => 0}
+      render :json => data_table
+    end
+  end
+  
   def checkout
     if not session[:cart].nil?
       cart = session[:cart]
@@ -65,7 +88,12 @@ class CartController < ApplicationController
     @item = @list.item
     
     respond_to do |format|
-      format.html { redirect_to listing_path (item.sub_category.id) }
+      
+      if not params[:fromcart].nil? and params[:fromcart] == "true"
+        format.html { redirect_to :action => "index", :controller => "cart" }
+      else
+        format.html { redirect_to listing_path (item.sub_category.id) }
+      end
     end
   end
 end

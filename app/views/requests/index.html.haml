@@ -1,21 +1,27 @@
+= javascript_include_tag 'page_related/requests'
 %h1
   Requests
 
-- @requests.each do |request|
-  = request.item.name
-  - if not request.item.loaned?
-    %a{ :href=>"/requests/#{request.id}/accept"}
-      Accept
-  - else
-    %b
-      This item has already been loaned
-    |
-  %a{ :href=>"/requests/#{request.id}/reject"}
-    Reject
-  %ul
-    %li
-      requested by
-      = request.requester_full_name
-    %li
-      at
-      = request.created_at
+%table{:id => "list_table", :class => "display"}
+  %thead
+    %tr
+      %th
+        Item Name
+      %th
+        Sub Category
+      %th
+        Requester
+      %th
+        Requested At
+      %th
+        &nbsp;
+      %th
+        &nbsp;
+
+  %tbody
+    %tr
+      %td{ :colspan => "6" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "6"}
