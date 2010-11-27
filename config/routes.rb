@@ -4,9 +4,17 @@ Wamlibrary::Application.routes.draw do
 
   devise_for :users
 
-  resources :sub_categories
+  resources :sub_categories do
+    collection do
+        get 'tojson'
+    end
+
+  end
 
   resources :items do
+    collection do
+        get 'tojson'
+    end
     member do
       get 'return'
     end
@@ -16,6 +24,7 @@ Wamlibrary::Application.routes.draw do
     collection do
       get 'tojson'
     end
+
   end
   
   resources :requests do

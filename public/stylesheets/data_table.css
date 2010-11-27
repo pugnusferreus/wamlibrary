@@ -48,12 +48,10 @@ table.display td.center {
 
 
 .dataTables_wrapper {
-	position: relative;
-	min-height: 302px;
-	clear: both;
-	_height: 302px;
-	zoom: 1; /* Feeling sorry for IE */
-	
+  position: relative;
+  clear: both;
+  _height: 302px;
+  zoom: 1; /* Feeling sorry for IE */	
 }
 
 .dataTables_processing {

@@ -1,44 +1,34 @@
+= javascript_include_tag 'page_related/items'
 %h1
-  Listing items
+  Items
 
-%table
-  %tr
-    %th
-      Name
-    %th
-      Author
-    %th
-      Description
-    %th
-      Sub Category
-    %th
-      Active
-    %th
-      &nbsp;
-    %th
-      &nbsp;
-    %th
-      &nbsp;
-
-  - @items.each do |item|
+%table{:id => "list_table", :class => "display"}
+  %thead
     %tr
-      %td
-        = item.name
-      %td
-        = item.author
-      %td
-        = item.description
-      %td
-        = item.sub_category.name
-      %td
-        = item.active
-      %td
-        = link_to 'Show', item
-      %td
-        = link_to 'Edit', edit_item_path(item)
-      %td
-        = link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
+      %th
+        Name
+      %th
+        Author
+      %th
+        Description
+      %th
+        Sub Category
+      %th
+        Active
+      %th
+        Loaned
+      %th
+        &nbsp;
+      %th
+        &nbsp;
 
+  %tbody
+    %tr
+      %td{ :colspan => "8" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "8"}
 %br
 
 = link_to 'New Item', new_item_path
