@@ -1,11 +1,14 @@
+= javascript_include_tag 'page_related/items'
 
 .field
   = form.label :name
+  *
   %br
   = form.text_field :name, :class => "required"
 
 .field
   = form.label :author
+  *
   %br
   = form.text_field :author, :class => "required"
 
@@ -16,6 +19,7 @@
 
 .field
   = form.label :category
+  *
   %br
   = collection_select(:item, :sub_category_id, SubCategory.all, :id, :name, {:prompt => "Please select a sub category"}, :class => "required")
 
