@@ -2,6 +2,7 @@
 
 .field
   = form.label :name
+  *
   %br
   = form.text_field :name, :class => "required"
 
@@ -12,5 +13,6 @@
 
 .field
   = form.label :category
+  *
   %br
   = collection_select(:sub_category, :category_id, Category.all, :id, :name, {:prompt => "Please select a category"}, :class => "required")
