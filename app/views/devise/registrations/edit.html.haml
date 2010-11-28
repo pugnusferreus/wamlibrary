@@ -1,0 +1,45 @@
+= javascript_include_tag 'page_related/users'
+
+%h2
+  Edit My Details
+
+- form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email, :class => "required"
+
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name, :class => "required"
+
+  %p
+    = f.label :last_name
+    %br
+    = f.text_field :last_name, :class => "required"
+
+  %p
+    = f.label :password 
+    %i
+      (leave blank if you don't want to change it)
+    %br
+    = f.password_field :password
+
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+
+  %p
+    = f.label :current_password
+    %i
+      (we need your current password to confirm your changes)
+    %br
+    = f.password_field :current_password, :class => "required"
+
+  %p
+    = f.submit "Update"
+
+= link_to "Back", :back
