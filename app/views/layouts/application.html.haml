@@ -13,11 +13,14 @@
         #login_section
           You're currently logged in with #{current_user.full_name}
           %br
-          %a{ :href=>"/users/sign_out"}
-            Sign Out
-          |
           %a{ :href=>"/"}
             Home
+          |
+          %a{ :href=>"/users/edit"}
+            My Details
+          |
+          %a{ :href=>"/users/sign_out"}
+            Sign Out
         #checkout_section
           %a{ :href=>"/cart/"}
             Check Out
