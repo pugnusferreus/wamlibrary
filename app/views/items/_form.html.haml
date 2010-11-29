@@ -28,3 +28,17 @@
   %br
   %input{:type=>"checkbox",:id=>"active",:name=>"item[active]",:value=> "true",:checked=>@item.active}
 
+.field
+  = form.label :year
+  %br
+  = form.text_field :year, :class => "number"
+
+.field
+  Index Number
+  %br
+  = form.text_field :index_num, :class => "required"
+
+.field
+  = form.label :contents
+  %br
+  = form.text_field :contents
