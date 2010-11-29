@@ -8,7 +8,7 @@ $(document).ready(function() {
     "bServerSide": false,
     "sPaginationType": "full_numbers",
     "sAjaxSource": "/sub_categories/tojson",
-    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "150px"},{"sWidth": "250px"},{ "bSortable": false, "bVisible": true,"sWidth": "50px" },{ "bSortable": false, "bVisible": true,"sWidth": "50px" }]
+    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "250px"},{"sWidth": "150px"},{ "bSortable": false, "bVisible": true,"sWidth": "50px" },{ "bSortable": false, "bVisible": true,"sWidth": "50px" }]
   } );
 
   $("#list_table_length").hide();
