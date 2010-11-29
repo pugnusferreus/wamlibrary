@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101120052801) do
+ActiveRecord::Schema.define(:version => 20101129121732) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(:version => 20101120052801) do
     t.boolean  "loaned"
     t.string   "loaned_by"
     t.datetime "loaned_date"
+    t.integer  "year"
+    t.string   "index_num"
+    t.date     "due_date"
+    t.string   "contents"
   end
 
   create_table "logs", :force => true do |t|
