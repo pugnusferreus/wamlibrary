@@ -9,7 +9,6 @@ gem 'pg', :require => 'pg'
 gem "haml"
 gem "validatable"
 gem "devise", '~> 1.1'
-gem 'gmail_smtp', :git => 'git://github.com/adamwiggins/gmail_smtp.git'
 
 
 # Use unicorn as the web server
