@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
 body { 
   background-color: #666666;
   background-image:url('/images/bg-main.png');
@@ -61,7 +65,7 @@ div.field, div.actions {
 
 #container {
   margin-left: 10px ;
-  margin-right: 10px ;
+  margin-right: 5px ;
   position: absolute;
   margin-top: 40px;
   /* border: #666666 1px solid; */
@@ -74,7 +78,7 @@ div.field, div.actions {
 
 #navigation {
   float: left;
-  width: 200px;
+  width: 150px;
   margin-top: 30px;
 }
 
