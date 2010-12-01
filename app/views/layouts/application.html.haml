@@ -4,7 +4,7 @@
     %title
       WAM Library
     = stylesheet_link_tag 'application', 'data_table', 'validation'
-    = javascript_include_tag 'jquery-1.4.2', 'jquery.dataTables', 'jquery.validate'
+    = javascript_include_tag 'jquery-1.4.2', 'jquery.dataTables', 'jquery.validate', 'application'
     = csrf_meta_tag
 
   %body
@@ -24,13 +24,44 @@
         #checkout_section
           %a{ :href=>"/cart/"}
             Check Out
-    #content
-      %p{:class => "notice"}
-        = notice
-      %p{:class => "alert"}
-        = alert
-      = yield
+    #container
+      #navigation
+        - if not current_user.nil?
+          - categories = Category.all 
+          - categories.each do |category|
+            %a{ :href => "#", :id => "navigation_link_#{category.id}"}
+              = category.name
+            %br
+            %div{ :id => "navigation_#{category.id}", :class => "main_menu"}
+              %ul
+                - category.sub_categories.sort!  {|a,b| a.name<=> b.name}
+                - category.sub_categories.each do |sub_category|
+                  %li
+                    = link_to sub_category.name, :controller => "listings", :action => "show", :id => sub_category
+              
 
-      %p
-        &nbsp;
-      %br
+          %br
+          - if current_user.admin?
+            %a{ :href => "#", :id => "navigation_link_admin"}
+              Admin
+            %div{ :id => "navigation_admin", :class => "main_menu"}
+              %ul
+                %li
+                  = link_to "Categories", :controller => "categories", :action => "index"
+                %li
+                  = link_to "Sub Categories", :controller => "sub_categories", :action => "index"
+                %li
+                  = link_to "Items", :controller => "items", :action => "index"
+                %li
+                  = link_to "Requests", :controller => "requests", :action => "index"
+
+      #content
+        %p{:class => "notice"}
+          = notice
+        %p{:class => "alert"}
+          = alert
+        = yield
+
+        %p
+          &nbsp;
+        %br
