@@ -46,6 +46,7 @@ class RequestsController < ApplicationController
     Item.update(item.id, { :loaned => true, :loaned_by => request.requester, :loaned_date => Time.now })
     request.destroy
     Log.create("requester" => request.requester, "item" => item.id, "log_type" => Log::BORROW)
+    Notification.accept_notification(request.requester,current_user.full_name, item).deliver
     respond_to do |format|
       format.html { redirect_to requests_path }
     end
@@ -55,6 +56,7 @@ class RequestsController < ApplicationController
     request = Request.find(params[:id])
     item = request.item
     request.destroy
+    Notification.reject_notification(request.requester,current_user.full_name, item).deliver
     respond_to do |format|
       format.html { redirect_to requests_path }
     end

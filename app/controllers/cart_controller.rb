@@ -41,7 +41,7 @@ class CartController < ApplicationController
         request.save
         session[:cart] = nil
       end
-      Notification.request_notification(current_user).deliver
+      Notification.request_notification(current_user, items).deliver
     end
   end
   
