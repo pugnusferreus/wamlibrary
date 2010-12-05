@@ -1,0 +1,28 @@
+= javascript_include_tag 'page_related/user_maintenance'
+%h1
+  User Maintenance
+
+
+%table{:id => "list_table", :class => "display"}
+  %thead
+    %tr
+      %th
+        Email
+      %th
+        Full Name
+      %th
+        Is Admin
+      %th
+        Is Enabled
+      %th
+        &nbsp;
+      %th
+        &nbsp;
+  %tbody
+    %tr
+      %td{ :colspan => "6" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "6"}
+%br

@@ -21,12 +21,13 @@
           |
           %a{ :href=>"/users/sign_out"}
             Sign Out
-        #checkout_section
-          %a{ :href=>"/cart/"}
-            Check Out
+        - if current_user.enabled?
+          #checkout_section
+            %a{ :href=>"/cart/"}
+              Check Out
     #container
       #navigation
-        - if not current_user.nil?
+        - if not current_user.nil? and current_user.enabled?
           - categories = Category.all 
           - categories.each do |category|
             %a{ :href => "#", :id => "navigation_link_#{category.id}"}
@@ -41,7 +42,7 @@
               
 
           %br
-          - if current_user.admin?
+          - if current_user.admin? and current_user.enabled?
             %a{ :href => "#", :id => "navigation_link_admin"}
               Admin
             %div{ :id => "navigation_admin", :class => "main_menu"}
@@ -54,6 +55,8 @@
                   = link_to "Items", :controller => "items", :action => "index"
                 %li
                   = link_to "Requests", :controller => "requests", :action => "index"
+                %li
+                  = link_to "User Maintenance", :controller => "user_maintenance", :action => "index"
 
       #content
         %p{:class => "notice"}

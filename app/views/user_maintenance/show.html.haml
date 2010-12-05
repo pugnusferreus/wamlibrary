@@ -1,0 +1,11 @@
+%p{ :id => "notice"}
+  = notice
+
+%p
+  %b
+    Email:
+  = @user.email
+
+= link_to 'Edit', edit_user_maintenance_path(@user) 
+|
+= link_to 'Back', user_maintenance_index_path

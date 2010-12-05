@@ -2,7 +2,7 @@ Wamlibrary::Application.routes.draw do
 
   get "home/index"
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :sub_categories do
     collection do
@@ -10,6 +10,16 @@ Wamlibrary::Application.routes.draw do
     end
   end
 
+  resources :user_maintenance do
+    collection do
+      get 'tojson'
+    end
+    member do
+      get 'update'
+      get 'edit'
+    end
+  end
+  
   resources :items do
     collection do
         get 'tojson'

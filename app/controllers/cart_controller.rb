@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :is_logged_in
   def index
     if not session[:cart].nil?
       cart = session[:cart]

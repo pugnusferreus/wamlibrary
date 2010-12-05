@@ -1,0 +1,34 @@
+= javascript_include_tag 'page_related/user_maintenance'
+
+.field
+  = form.label :email
+  *
+  %br
+  = form.text_field :email, :class => "required"
+
+.field
+  = form.label :first_name
+  *
+  %br
+  = form.text_field :first_name, :class => "required"
+
+
+.field
+  = form.label :last_name
+  *
+  %br
+  = form.text_field :last_name, :class => "required"
+
+
+.field
+  = form.label :admin
+  *
+  %br
+  %input{:type=>"checkbox",:id=>"admin",:name=>"user_maintenance[admin]",:value=> "true",:checked=>@user.admin}
+
+
+.field
+  = form.label :enabled
+  *
+  %br
+  %input{:type=>"checkbox",:id=>"enabled",:name=>"user_maintenance[enabled]",:value=> "true",:checked=>@user.enabled}

@@ -1,2 +1,6 @@
-%h3
-  Hi there, welcome to WAM Library. Please select a category on your left.
+- if current_user.enabled?
+  %h3
+    Hi there, welcome to WAM Library. Please select a category on your left.
+- else
+  %h3
+    Your account is currently disabled or has not yet been approved by your administrator.
