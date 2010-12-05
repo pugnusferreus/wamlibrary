@@ -18,10 +18,12 @@
   = form.text_area :description
 
 .field
-  = form.label :category
+  = form.label :sub_category
   *
   %br
-  = collection_select(:item, :sub_category_id, SubCategory.all, :id, :name, {:prompt => "Please select a sub category"}, :class => "required")
+  - sub_categories = SubCategory.all
+  - sub_categories.sort!  {|a,b| a.name<=> b.name}
+  = collection_select(:item, :sub_category_id, sub_categories, :id, :name, {:prompt => "Please select a sub category"}, :class => "required")
 
 .field
   = form.label :active
