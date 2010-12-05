@@ -74,6 +74,7 @@ div.field, div.actions {
 #content {
   margin-left: 10px;
   float: left;
+  width: 800px;
 }
 
 #navigation {
