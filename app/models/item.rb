@@ -40,4 +40,14 @@ class Item < ActiveRecord::Base
     
     return data_table
   end
+  
+  def loaned_by_full_name
+    user = User.where(:email => loaned_by).first
+    
+    if not user.nil?
+      return user.full_name
+    else
+      loaned_by
+    end
+  end
 end
