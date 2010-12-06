@@ -29,6 +29,7 @@
       #navigation
         - if not current_user.nil? and current_user.enabled?
           - categories = Category.all 
+          - categories.sort!  {|a,b| a.name<=> b.name}
           - categories.each do |category|
             %a{ :href => "#", :id => "navigation_link_#{category.id}"}
               = category.name
