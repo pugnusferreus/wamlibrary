@@ -1,6 +1,5 @@
 %h1
   Edit Item
-
 - form_for(@item) do |f|
   - if @item.errors.any?
     #error_explanation
@@ -29,8 +28,14 @@
     %li
       Date Loaned
       = @item.loaned_date
+    %li
+      Due Date
+      = @item.due_date
   %a{ :href=>"/items/#{@item.id}/return"}
     Return this item
+  %br
+  %a{ :href=>"/items/#{@item.id}/do_extension"}
+    Do extension
 - else
   Available
       

@@ -1,0 +1,29 @@
+= javascript_include_tag 'page_related/items_due'
+%h1
+  Items Due
+
+%table{:id => "list_table", :class => "display"}
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Index No.
+      %th
+        Borrower
+      %th
+        Due Date
+      %th
+        Days Exceed
+      %th
+        &nbsp;
+
+  %tbody
+    %tr
+      %td{ :colspan => "6" }
+        Loading data from server
+  %tfoot
+    %tr
+      %td{ :colspan => "6"}
+%br
+

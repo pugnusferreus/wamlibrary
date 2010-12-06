@@ -100,4 +100,12 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_path }
     end
   end
+  
+  def do_extension
+    item = Item.find(params[:id])
+    item.do_extension
+    respond_to do |format|
+      format.html { redirect_to :action => 'edit' }
+    end
+  end
 end

@@ -41,6 +41,27 @@ class Item < ActiveRecord::Base
     return data_table
   end
   
+  def to_item_due_data_table
+    items = Item.where("current_date > due_date").order("name")
+    data_table = {"sEcho" => 1, "iTotalRecords" => items.count, "iTotalDisplayRecords" => items.count}
+    items_array = Array.new
+    
+    items.each do |item|
+      row = Array.new(6)
+      row[0] = item.name
+      row[1] = item.index_num
+      row[2] = item.loaned_by_full_name
+      row[3] = item.due_date
+      row[4] = (DateTime.now - item.due_date).to_i
+      row[5] = "<a href='/items_due/#{item.id}/do_extension'>Extend</a>"
+      items_array.push row
+    end
+    data_table["aaData"] = items_array
+    
+    return data_table
+    
+  end
+  
   def loaned_by_full_name
     user = User.where(:email => loaned_by).first
     
@@ -49,5 +70,15 @@ class Item < ActiveRecord::Base
     else
       loaned_by
     end
+  end
+  
+  def do_extension
+    item = Item.find(id)
+    if DateTime.now > item.due_date
+      item.due_date = DateTime.now + item.sub_category.category.duration
+    else
+      item.due_date = item.due_date + item.sub_category.category.duration
+    end
+    item.save
   end
 end

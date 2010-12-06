@@ -26,6 +26,16 @@ Wamlibrary::Application.routes.draw do
     end
     member do
       get 'return'
+      get 'do_extension'
+    end
+  end
+  
+  resources :items_due do
+    collection do
+        get 'tojson'
+    end
+    member do
+      get 'do_extension'
     end
   end
 

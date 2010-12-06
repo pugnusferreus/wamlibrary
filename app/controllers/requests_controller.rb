@@ -1,3 +1,5 @@
+require 'date'
+
 class RequestsController < ApplicationController
   before_filter :is_admin
   
@@ -24,7 +26,12 @@ class RequestsController < ApplicationController
   def accept
     request = Request.find(params[:id])
     item = request.item
-    Item.update(item.id, { :loaned => true, :loaned_by => request.requester, :loaned_date => Time.now })
+    due_date = nil
+    if not item.sub_category.category.duration.nil?
+      due_date = DateTime.now + item.sub_category.category.duration
+    end
+    
+    Item.update(item.id, { :loaned => true, :loaned_by => request.requester, :loaned_date => Time.now, :due_date => due_date })
     request.destroy
     Log.create("requester" => request.requester, "item" => item.id, "log_type" => Log::BORROW)
     Notification.accept_notification(request.requester,current_user.full_name, item).deliver

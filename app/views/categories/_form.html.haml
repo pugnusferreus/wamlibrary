@@ -11,3 +11,8 @@
   %br
   = form.text_area :description
   
+.field
+  = form.label :duration
+  (Days) *
+  %br
+  = form.text_field :duration, :class => "required number"
