@@ -5,6 +5,11 @@
 - if @item.nil? or @item.count < 1
   No item to check out
 - else
+  %p
+    |
+    %a{ :href=>"/cart/checkout"}
+      Confirm Check Out
+    |
   %table{:id => "list_table", :class => "display"}
     %thead
       %tr
@@ -25,7 +30,5 @@
       %tr
         %td{ :colspan => "4"}
 
-  %a{ :href=>"/cart/checkout"}
-    Confirm Check Out 
 %br
 
