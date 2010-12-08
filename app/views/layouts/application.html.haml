@@ -10,21 +10,28 @@
   %body
     - if not current_user.nil?
       #header_content
+        #banner
+          %h1
+            WAM Library
         #login_section
           You're currently logged in with #{current_user.full_name}
+          (
+          %a{ :href=>"/users/sign_out"}
+            Sign Out
+          )
           %br
+        #checkout_section
           %a{ :href=>"/"}
             Home
           |
           %a{ :href=>"/users/edit"}
             My Details
-          |
-          %a{ :href=>"/users/sign_out"}
-            Sign Out
-        - if current_user.enabled?
-          #checkout_section
+
+          - if current_user.enabled?
+            |
             %a{ :href=>"/cart/"}
               Check Out
+
     #container
       #navigation
         - if not current_user.nil? and current_user.enabled?

@@ -1,10 +1,9 @@
-
 label.error {
-	color: red;
-	background:url("../images/error.png") no-repeat scroll 0 15px transparent;
-	padding-bottom: 2px;
-	padding-top: 16px;
-	padding-left: 15px;
-	white-space: nowrap;
-	margin-left: 5px;
+  color: red;
+  background:url("../images/error.png") no-repeat scroll 0 15px transparent;
+  padding-bottom: 2px;
+  padding-top: 16px;
+  padding-left: 15px;
+  white-space: nowrap;
+  margin-left: 5px;
 }

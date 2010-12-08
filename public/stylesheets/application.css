@@ -1,11 +1,15 @@
 html {
   height: 100%;
   overflow: scroll;
+  margin: 0px;
+  padding: 0px;
 }
 body { 
   background-color: #666666;
   background-image:url('/images/bg-main.png');
   color: #ffffff; 
+  margin: 0px;
+  padding: 0px;
 }
 
 body, p, ol, ul, td {
@@ -75,6 +79,7 @@ div.field, div.actions {
   margin-left: 10px;
   float: left;
   width: 800px;
+  
 }
 
 #navigation {
@@ -85,30 +90,50 @@ div.field, div.actions {
 
 #login_form {
   margin-top: 40px;
-  width: 360px;
-  
+  width: 360px;  
   position: relative;
+  border-radius: 27px;
+  -webkit-border-radius: 27px;
+  -moz-border-radius: 27px;
+  border: #666666 1px solid;
+}
+
+#login_form form {
+  margin-left: 20px;
+}
+
+#login_form h2 {
+  margin-left: 20px;
 }
 
 #header_content {
   margin-left: 2px;
   margin-right: 2px;
-
+  height: 80px;
+  display: block;
+  border-bottom: #666666 1px solid;
 }
 
+#banner {
+  height: 40px;
+  margin-left: 20px;
+
+}
 #login_section {
   float: left;  
-	position: inherit;
+  position: inherit;
+  margin-left: 20px;
 }
 
 #checkout_section {
   float: right;
-	position: relative;
+  position: relative;
+  margin-right: 20px;
 }
 
 .main_menu ul {
 }
 
 .main_menu li {
-	list-style-position: outside;
+  list-style-position: outside;
 }
