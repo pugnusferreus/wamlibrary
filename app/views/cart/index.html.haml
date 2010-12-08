@@ -6,10 +6,11 @@
   No item to check out
 - else
   %p
-    |
-    %a{ :href=>"/cart/checkout"}
-      Confirm Check Out
-    |
+    %img{ :src=>"/images/cart.png", :alt=>"Shopping Cart"}
+    %b
+      %a{ :href=>"/cart/checkout"}
+        Confirm Check Out
+
   %table{:id => "list_table", :class => "display"}
     %thead
       %tr
