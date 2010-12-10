@@ -15,25 +15,24 @@ class Item < ActiveRecord::Base
     items_array = Array.new
     
     items.each do |item|
-      row = Array.new(8)
+      row = Array.new(7)
       row[0] = item.name
       row[1] = item.author
-      row[2] = item.description
-      row[3] = item.sub_category.name
+      row[2] = item.sub_category.name
       if item.active?
-        row[4] = "Active"
+        row[3] = "Active"
       else
-        row[4] = "Inactive"
+        row[3] = "Inactive"
       end
       
       if item.loaned?
-        row[5] = "Loaned"
+        row[4] = "Loaned"
       else
-        row[5] = "Available"
+        row[4] = "Available"
       end
       
-      row[6] = "<a href='/items/#{item.id}'>Show</a>"
-      row[7] = "<a href='/items/#{item.id}/edit'>Edit</a>"
+      row[5] = "<a href='/items/#{item.id}'>Show</a>"
+      row[6] = "<a href='/items/#{item.id}/edit'>Edit</a>"
       items_array.push row
     end
     data_table["aaData"] = items_array
