@@ -94,10 +94,7 @@ div.field, div.actions {
   margin-top: 40px;
   width: 360px;  
   position: relative;
-  border-radius: 27px;
-  -webkit-border-radius: 27px;
-  -moz-border-radius: 27px;
-  border: #666666 1px solid;
+
 }
 
 #login_form form {
