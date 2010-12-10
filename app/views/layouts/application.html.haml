@@ -12,6 +12,7 @@
       #header_content
         #banner
           %h1
+            %br
             WAM Library
         #login_section
           You're currently logged in with #{current_user.full_name}
@@ -75,6 +76,7 @@
           = alert
         = yield
 
+      #footer
         %p
           &nbsp;
         %br

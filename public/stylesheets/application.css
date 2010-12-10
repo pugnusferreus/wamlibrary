@@ -5,9 +5,8 @@ html {
   padding: 0px;
 }
 body { 
-  background-color: #666666;
-  background-image:url('/images/bg-main.png');
-  color: #ffffff; 
+  background-color: #ffffff;
+  color: #666666; 
   margin: 0px;
   padding: 0px;
 }
@@ -24,8 +23,8 @@ pre {
   font-size: 11px;
 }
 
-a { color: #ffffff; }
-a:visited { color: #ffffff; }
+a { color: #666666; }
+a:visited { color: #666666; }
 a:hover { color: #cccccc; }
 
 div.field, div.actions {
@@ -78,9 +77,12 @@ div.field, div.actions {
 #content {
   margin-left: 10px;
   float: left;
-  width: 800px;
+  padding: 10px;
+  margin-right: 10px;
+  border-left: solid 1px #666666;
   
 }
+
 
 #navigation {
   float: left;
@@ -107,29 +109,51 @@ div.field, div.actions {
 }
 
 #header_content {
-  margin-left: 2px;
-  margin-right: 2px;
-  height: 80px;
-  display: block;
+  background-color: #CCCCCC;
+  margin: 10px;
+  padding: 0px;
+  height: 100px;
+  position: inherit;
+
   border-bottom: #666666 1px solid;
+  border-radius: 13px;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border: #666666 1px solid;
 }
 
 #banner {
-  height: 40px;
+  margin-top: 10px;
   margin-left: 20px;
+  position: static;
 
 }
+
+#banner h1 {
+  margin-top: 10px;
+  position: static;
+}
+
 #login_section {
   float: left;  
   position: inherit;
   margin-left: 20px;
 }
 
+#login_section a:hover { color: black; }
+
 #checkout_section {
   float: right;
   position: relative;
   margin-right: 20px;
 }
+
+#checkout_section a { 
+  color: #666666;
+  font-size: 18px;
+}
+#checkout_section a:visited { color: #666666; }
+#checkout_section a:hover { color: black; }
 
 .main_menu ul {
 }

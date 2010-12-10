@@ -1,12 +1,11 @@
 .dataTables_info {
-	width: 60%;
-	float: right;
-	text-align:right;
-	margin-top: 10px;
+  width: 60%;
+  float: right;
+  text-align:right;
+  margin-top: 10px;
 }
 
 table.display {
-  margin: 0 auto;
   width: 100%;
   clear: both;
   border-collapse: collapse;
@@ -19,6 +18,7 @@ table.display thead th {
   font-weight: bold;
   cursor: pointer;
   * cursor: hand;
+  color: #ffffff;
 }
 
 table.display tfoot  {
@@ -32,7 +32,12 @@ table.display tr.heading2 td {
 table.display td {
   padding: 3px 10px;
   border: 1px solid black;
+  color: black;
 }
+
+table.display a { color: black; }
+table.display a:visited { color: black; }
+table.display a:hover { color: black; }
 
 table.display td.center {
 	text-align: center;
@@ -78,17 +83,17 @@ table.display td.center {
 }
 
 .dataTables_filter {
-	width: 50%;
-	float: left;
-	text-align: left;
-	margin-bottom: 10px;
+  width: 50%;
+  float: left;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
-	height: 19px;
-	width: 19px;
-	margin-left: 3px;
-	float: left;
+  height: 19px;
+  width: 19px;
+  margin-left: 3px;
+  float: left;
 }
 
 .paginate_disabled_previous {
@@ -109,10 +114,11 @@ table.display td.center {
 
 
 .paging_full_numbers {
-	width: 400px;
-	height: 22px;
-	line-height: 22px;
-	margin-top: 10px;
+  width: 400px;
+  height: 22px;
+  line-height: 22px;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 .paging_full_numbers span.paginate_button,
@@ -140,5 +146,5 @@ table.display td.center {
 
 .odd {
   background-color: #3399CC;	
-  color: black;
+
 }
