@@ -43,7 +43,7 @@
               = category.name
             %br
             %div{ :id => "navigation_#{category.id}", :class => "main_menu"}
-              %ul
+              %ul{ :class => "nav_list"}
                 - category.sub_categories.sort!  {|a,b| a.name<=> b.name}
                 - category.sub_categories.each do |sub_category|
                   %li
@@ -55,7 +55,7 @@
             %a{ :href => "#", :id => "navigation_link_admin"}
               Admin
             %div{ :id => "navigation_admin", :class => "main_menu"}
-              %ul
+              %ul{ :class => "nav_list"}
                 %li
                   = link_to "Categories", :controller => "categories", :action => "index"
                 %li
