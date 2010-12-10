@@ -12,4 +12,5 @@ $(document).ready(function() {
   } );
 
   $("#list_table_length").hide();
+  $("#navigation_admin").show();
 });

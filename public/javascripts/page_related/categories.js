@@ -14,4 +14,5 @@ $(document).ready(function() {
   $("#list_table_length").hide();
 
   $("form").validate();
+  $("#navigation_admin").show();
 });

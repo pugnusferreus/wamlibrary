@@ -1,9 +1,11 @@
 = javascript_include_tag 'page_related/listings'
 
 %h1
-  #{SubCategory.find(@list.sub_category_id).category.name} - #{SubCategory.find(@list.sub_category_id).name}
+  - sub_category = SubCategory.find(@list.sub_category_id)
+  #{sub_category.category.name} - #{sub_category.name}
 
 %input{ :type => "hidden", :id => "sub_category_id", :value =>"#{@list.sub_category_id}"}
+%input{ :type => "hidden", :id => "category_id", :value =>"#{sub_category.category.id}"}
 %table{:id => "list_table", :class => "display"}
   %thead
     %tr
