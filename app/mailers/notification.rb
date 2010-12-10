@@ -3,41 +3,63 @@ class Notification < ActionMailer::Base
   
   def request_notification(user, items)
     admins = User.where(:admin => true)
+    #if no admins, don't bother sending anything
+    if admins.size < 1
+      return
+    end
+    
+    admin_emails = Array.new(admins.size)
+    
+    i = 0
     admins.each do |admin|
       puts "mailing to #{admin.email}"
-      
-      items_point = ""
-      items.each do |item|
-        items_point += "<ul>#{item.name} (#{item.index_num})</ul>"
-      end
-      
-      mail_body = <<-HTML
-        <p>You have a WAM Library item request from #{user.full_name}</p>
-        Items requested :
-        <ul>
-          #{items_point}
-        </ul>
-      HTML
-      
-      mail(:to => admin.email, :subject => "You have a WAM Library request") do |format|
-        format.html { render :text => mail_body }
-      end
+      admin_emails[i] = admin.email
+      i += 1
     end
+    
+    items_point = ""
+    items.each do |item|
+      items_point += "<ul>#{item.name} (#{item.index_num})</ul>"
+    end
+      
+    mail_body = <<-HTML
+      <p>You have a WAM Library item request from #{user.full_name}</p>
+      Items requested :
+      <ul>
+        #{items_point}
+      </ul>
+    HTML
+      
+    mail(:to => admin_emails, :subject => "You have a WAM Library request") do |format|
+      format.html { render :text => mail_body }
+    end
+
   end
   
   def user_registration_request(full_name)
     admins = User.where(:admin => true)
+    #if no admins, don't bother sending anything
+    if admins.size < 1
+      return
+    end
+    
+    admin_emails = Array.new(admins.size)
+    
+    i = 0
     admins.each do |admin|
       puts "mailing to #{admin.email}"
-      
-      mail_body = <<-HTML
-        <p>You have a WAM Library user registration request from #{full_name}</p>
-      HTML
-      
-      mail(:to => admin.email, :subject => "You have a WAM Library user registration request") do |format|
-        format.html { render :text => mail_body }
-      end
+      admin_emails[i] = admin.email
+      i += 1
     end
+          
+    mail_body = <<-HTML
+      <p>You have a WAM Library user registration request from #{full_name}</p>
+    HTML
+      
+    mail(:to => admin_emails, :subject => "You have a WAM Library user registration request") do |format|
+      format.html { render :text => mail_body }
+    end
+
   end
   
   def changed_user_details(user, email_param, first_name_param, last_name_param, admin_param, enabled_param)
