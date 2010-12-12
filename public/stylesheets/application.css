@@ -133,16 +133,18 @@ div.field, div.actions {
 }
 
 #banner {
-  margin-top: 10px;
+  margin-top: 0px;
   margin-left: 20px;
   position: static;
-
 }
 
-#banner h1 {
-  margin-top: 10px;
+
+#logo {
+  margin-top: 0px;
+  padding: 0px;
   position: static;
 }
+
 
 #login_section {
   float: left;  
