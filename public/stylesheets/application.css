@@ -76,7 +76,7 @@ div.field, div.actions {
 }
 
 #content {
-  margin-left: 150px;
+  margin-left: 180px;
   position: absolute;
   float: left;
   padding: 10px;
@@ -88,7 +88,7 @@ div.field, div.actions {
 
 #navigation {
   float: left;
-  width: 150px;
+  width: 170px;
   margin-top: 30px;
 }
 
@@ -128,9 +128,7 @@ div.field, div.actions {
   position: inherit;
 
   border-bottom: #666666 1px solid;
-  border-radius: 13px;
-  -webkit-border-radius: 13px;
-  -moz-border-radius: 13px;
+  
   border: #666666 1px solid;
 }
 
@@ -172,4 +170,40 @@ div.field, div.actions {
 
 .main_menu li {
   list-style-position: outside;
+}
+
+.text_box_wrapper {
+  width: 250px; 
+  height: 30px; 
+  background-color: #ffffff;
+  border: #666666 1px solid;
+
+}
+
+.text_box {
+  width: 230px; 
+  height: 20px; 
+  background-color: transparent; 
+  position: relative; 
+  top: 5px; 
+  left: 10px; 
+  border-style: none;
+}
+
+.text_area_wrapper {
+  width: 250px; 
+  height: 100px; 
+  background-color: #ffffff;
+  border: #666666 1px solid;
+
+}
+
+.text_area {
+  width: 230px; 
+  height: 80px; 
+  background-color: transparent; 
+  position: relative; 
+  top: 5px; 
+  left: 10px; 
+  border-style: none;
 }

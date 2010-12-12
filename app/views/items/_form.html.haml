@@ -4,18 +4,21 @@
   = form.label :name
   *
   %br
-  = form.text_field :name, :class => "required"
+  .text_box_wrapper
+    = form.text_field :name, :class => "required text_box"
 
 .field
   = form.label :author
   *
   %br
-  = form.text_field :author, :class => "required"
+  .text_box_wrapper
+    = form.text_field :author, :class => "required text_box"
 
 .field
   = form.label :description
   %br
-  = form.text_area :description
+  .text_area_wrapper
+    = form.text_area :description, :class => "text_area"
 
 .field
   = form.label :sub_category
@@ -33,14 +36,18 @@
 .field
   = form.label :year
   %br
-  = form.text_field :year, :class => "number"
+  .text_box_wrapper
+    = form.text_field :year, :class => "number text_box"
 
 .field
   Index Number
+  *
   %br
-  = form.text_field :index_num, :class => "required"
+  .text_box_wrapper
+    = form.text_field :index_num, :class => "required text_box"
 
 .field
   = form.label :contents
   %br
-  = form.text_field :contents
+  .text_box_wrapper
+    = form.text_field :contents, :class => "text_box"

@@ -12,6 +12,14 @@ $(document).ready(function() {
   } );
 
   $("#list_table_length").hide();
-
   $("#navigation_" + $("#category_id").val()).show()
+
+  //need to hack data tables abit to give it rounded edge
+  //if data tables exists, means there's no form
+  if($("#list_table_filter").children().length != 0) {
+    $("#list_table_filter").children().addClass('text_box');  
+    $("#list_table_filter").append("<div class='text_box_wrapper'></div>");
+    $('.text_box_wrapper').corner();
+    $(".text_box_wrapper").prepend($(".text_box"));
+  }
 });

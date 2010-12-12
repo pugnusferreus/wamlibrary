@@ -7,37 +7,46 @@
   = devise_error_messages!
   %p
     = f.label :email
+    *
     %br
-    = f.text_field :email, :class => "required"
+    .text_box_wrapper
+      = f.text_field :email, :class => "text_box required"
 
   %p
     = f.label :first_name
+    *
     %br
-    = f.text_field :first_name, :class => "required"
+    .text_box_wrapper
+      = f.text_field :first_name, :class => "required text_box"
 
   %p
     = f.label :last_name
+    *
     %br
-    = f.text_field :last_name, :class => "required"
+    .text_box_wrapper
+      = f.text_field :last_name, :class => "required text_box"
 
   %p
-    = f.label :password 
+    = f.label :password
     %i
       (leave blank if you don't want to change it)
     %br
-    = f.password_field :password
+    .text_box_wrapper
+      = f.password_field :password, :class => "text_box"
 
   %p
     = f.label :password_confirmation
     %br
-    = f.password_field :password_confirmation
+    .text_box_wrapper
+      = f.password_field :password_confirmation, :class => "text_box"
 
   %p
     = f.label :current_password
     %i
       (we need your current password to confirm your changes)
     %br
-    = f.password_field :current_password, :class => "required"
+    .text_box_wrapper
+      = f.password_field :current_password, :class => "required text_box"
 
   %p
     = f.submit "Update"

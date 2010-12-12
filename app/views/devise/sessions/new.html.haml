@@ -8,12 +8,14 @@
       = f.label :email
       *
       %br
-      = f.text_field :email, :class => "required email"
+      .text_box_wrapper
+        = f.text_field :email, :class => "text_box required email"
     %p
       = f.label :password
       *
       %br
-      = f.password_field :password, :class => "required"
+      .text_box_wrapper
+        = f.password_field :password, :class => "text_box required"
     - if devise_mapping.rememberable?
       %p
         = f.check_box :remember_me
@@ -22,6 +24,6 @@
       = f.submit "Sign in"
     %p
       %a{ :href=> "/users/sign_up"}
-        Sign up
+        Request for membership
       %br
 

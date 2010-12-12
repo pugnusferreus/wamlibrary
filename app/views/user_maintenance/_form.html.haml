@@ -4,20 +4,23 @@
   = form.label :email
   *
   %br
-  = form.text_field :email, :class => "required"
+  .text_box_wrapper
+    = form.text_field :email, :class => "required text_box"
 
 .field
   = form.label :first_name
   *
   %br
-  = form.text_field :first_name, :class => "required"
+  .text_box_wrapper
+    = form.text_field :first_name, :class => "required text_box"
 
 
 .field
   = form.label :last_name
   *
   %br
-  = form.text_field :last_name, :class => "required"
+  .text_box_wrapper
+    = form.text_field :last_name, :class => "required text_box"
 
 
 .field
