@@ -71,16 +71,18 @@ div.field, div.actions {
   margin-right: 5px ;
   position: absolute;
   margin-top: 40px;
+  width: 100%;
   /* border: #666666 1px solid; */
 }
 
 #content {
-  margin-left: 10px;
+  margin-left: 150px;
+  position: absolute;
   float: left;
   padding: 10px;
   margin-right: 10px;
   border-left: solid 1px #666666;
-  
+ 
 }
 
 
