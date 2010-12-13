@@ -122,6 +122,8 @@ div.field, div.actions {
 
 #header_content {
   background-color: #CCCCCC;
+  background-image: url(/images/header_bg.png);	
+  background-repeat: repeat-x;
   margin: 10px;
   padding: 0px;
   height: 100px;
@@ -153,21 +155,33 @@ div.field, div.actions {
   float: left;  
   position: inherit;
   margin-left: 20px;
+  color: white;
 }
 
-#login_section a:hover { color: black; }
+#login_section a {
+  color: white;
+}
+#login_section a:hover { 
+  color: #CCCCCC; 
+}
 
 #checkout_section {
   float: right;
   position: relative;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 
 #checkout_section a { 
-  color: #666666;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 14px;
+  border-top: solid 1px #ffffff;
+  border-bottom: solid 1px #ffffff;
+  text-decoration:none;
+  font-weight: bold;
+
 }
-#checkout_section a:visited { color: #666666; }
+#checkout_section a:visited { color: #ffffff; }
 #checkout_section a:hover { color: black; }
 
 .main_menu ul {

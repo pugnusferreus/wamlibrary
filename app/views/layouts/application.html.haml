@@ -22,13 +22,11 @@
           %br
         #checkout_section
           %a{ :href=>"/"}
-            Home
-          |
+            Home &nbsp;
           %a{ :href=>"/users/edit"}
-            My Details
+            My Details &nbsp;
 
           - if current_user.enabled?
-            |
             %a{ :href=>"/cart/"}
               Check Out
 
