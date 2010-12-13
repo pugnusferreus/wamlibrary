@@ -19,7 +19,6 @@ $(document).ready(function() {
   if($("#list_table_filter").children().length != 0) {
     $("#list_table_filter").children().addClass('text_box');  
     $("#list_table_filter").append("<div class='text_box_wrapper'></div>");
-    $('.text_box_wrapper').corner();
     $(".text_box_wrapper").prepend($(".text_box"));
   }
 });
