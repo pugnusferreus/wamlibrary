@@ -130,6 +130,9 @@ div.field, div.actions {
   border-bottom: #666666 1px solid;
   
   border: #666666 1px solid;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
 }
 
 #banner {
@@ -179,6 +182,9 @@ div.field, div.actions {
   height: 30px; 
   background-color: #ffffff;
   border: #666666 1px solid;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
 
 }
 
@@ -197,6 +203,9 @@ div.field, div.actions {
   height: 100px; 
   background-color: #ffffff;
   border: #666666 1px solid;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
 
 }
 
