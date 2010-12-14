@@ -105,12 +105,26 @@ class Notification < ActionMailer::Base
     
     mail_body = <<-HTML
       The request for item <b>#{item.name} (#{item.index_num})</b> has been accepted by #{accepted_by}
+      <br/>
+      Please collect your item from your librarian.
     HTML
       
     mail(:to => requester_email, :subject => "Your WAM Library request has been accepted") do |format|
       format.html { render :text => mail_body }
     end
 
+  end
+  
+  def pickedup_notification(requester_email,item,due_date)
+    mail_body = <<-HTML
+      You have picked up <b>#{item.name} (#{item.index_num})</b>
+      <br/>
+      Your due date is <b>#{due_date.strftime("%Y-%m-%d")}</b>
+    HTML
+      
+    mail(:to => requester_email, :subject => "Your WAM Library request has been accepted") do |format|
+      format.html { render :text => mail_body }
+    end
   end
   
   def reject_notification(requester_email,rejected_by, item)

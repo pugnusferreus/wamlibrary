@@ -31,10 +31,16 @@ class RequestsController < ApplicationController
       due_date = DateTime.now + item.sub_category.category.duration
     end
     
-    Item.update(item.id, { :loaned => true, :loaned_by => request.requester, :loaned_date => Time.now, :due_date => due_date })
-    request.destroy
-    Log.create("requester" => request.requester, "item" => item.id, "log_type" => Log::BORROW)
-    Notification.accept_notification(request.requester,current_user.full_name, item).deliver
+    if request.approved?
+      Item.update(item.id, { :loaned => true, :loaned_by => request.requester, :loaned_date => Time.now, :due_date => due_date })
+      request.destroy
+      Log.create("requester" => request.requester, "item" => item.id, "log_type" => Log::BORROW)
+      Notification.pickedup_notification(request.requester,item,due_date).deliver
+      
+    else
+      Request.update(request.id, { :approved => true })
+      Notification.accept_notification(request.requester,current_user.full_name, item).deliver
+    end
     respond_to do |format|
       format.html { redirect_to requests_path }
     end

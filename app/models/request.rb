@@ -23,7 +23,12 @@ class Request < ActiveRecord::Base
       row[2] = request.requester_full_name
       row[3] = request.created_at.strftime("%Y-%m-%d %H:%M")
       if not request.item.loaned?
-        row[4] = "<a href='/requests/#{request.id}/accept'>Accept</a>"
+        if request.approved?
+          row[4] = "<a href='/requests/#{request.id}/accept'>Picked Up</a>"
+        else
+          row[4] = "<a href='/requests/#{request.id}/accept'>Accept</a>"
+        end
+        
       else
         row[4] = "This item has already been loaned"
       end
