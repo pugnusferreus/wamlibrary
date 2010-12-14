@@ -1,5 +1,33 @@
 %h1
   Edit Item
+  
+- if @item.loaned?
+  %img{ :src=>"/images/loaned.png", :alt=>"Loaned" }
+  Loaned
+  %ul
+    %li
+      By
+      = @item.loaned_by_full_name
+    %li
+      Date Loaned
+      = @item.loaned_date
+    %li
+      Due Date
+      = @item.due_date
+  %span
+    %img{ :src=>"/images/return.png", :alt=>"Return" }
+    %a{ :href=>"/items/#{@item.id}/return"}
+      Return this item
+  %span
+    %img{ :src=>"/images/extend.png", :alt=>"Extend" }
+    %a{ :href=>"/items/#{@item.id}/do_extension"}
+      Do extension
+- else
+  %img{ :src=>"/images/available.png", :alt=>"Available" }
+  Available
+  
+%hr
+
 - form_for(@item) do |f|
   - if @item.errors.any?
     #error_explanation
@@ -16,28 +44,7 @@
 
   %p
     = f.submit 'Update'
-    
-%hr
 
-- if @item.loaned?
-  Loaned
-  %ul
-    %li
-      By
-      = @item.loaned_by_full_name
-    %li
-      Date Loaned
-      = @item.loaned_date
-    %li
-      Due Date
-      = @item.due_date
-  %a{ :href=>"/items/#{@item.id}/return"}
-    Return this item
-  %br
-  %a{ :href=>"/items/#{@item.id}/do_extension"}
-    Do extension
-- else
-  Available
       
 %p
   = link_to 'Show', @item
