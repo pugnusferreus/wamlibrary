@@ -1,6 +1,45 @@
 - if current_user.enabled?
+  = javascript_include_tag 'page_related/home'
   %h3
-    Hi there, welcome to WAM Library. Please select a category on your left.
+    Hi there, welcome to WAM Library. 
+  %p
+    If you know what you're searching for, type into the search box below and click "Submit"
+    %br
+    If you're browsing, please select a category on your left.
+  %form{ :name => "search_form", :action => "#", :method => "get" }
+    %p
+      .search_box_wrapper
+        %input{ :type => "text", :name => "query", :id => "query", :value => "#{@query}", :class => "search_box" }
+      %br
+      %input{ :type => "submit", :value => "Submit" }
+      %br
+      %br
+    - if not @query.blank?
+      %table{:id => "list_table", :class => "display"}
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Author
+            %th
+              Status
+            %th
+              Description
+            %th
+              Category
+            %th
+              &nbsp;
+        %tbody
+          %tr
+            %td{ :colspan => "6" }
+              Loading data from server
+        %tfoot
+          %tr
+            %td{ :colspan => "6"}
+          
+      %br
+      
 - else
   %h3
     Your account is currently disabled or has not yet been approved by your administrator.

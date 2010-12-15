@@ -9,7 +9,15 @@ class List
     @sub_category_id = sub_category_id
   end
   
-  def to_data_table(cart)
+  def search(query)
+    if query.blank?
+      @item = Item.where("1 = 2").order("items.name")
+    else
+      @item = Item.where("name like ? or description like ? or author like ?","%#{query}%","%#{query}%","%#{query}%").order("items.name")
+    end
+  end
+  
+  def to_data_table(cart,from_search)
     
     data_table = {"sEcho" => 1, "iTotalRecords" => @item.count, "iTotalDisplayRecords" => @item.count}
     
@@ -24,9 +32,17 @@ class List
       row[4] = item.sub_category.category.name
       if not item.loaned?
         if not cart.nil? and cart[item.id]
-          row[5] = "<a href='/cart/#{item.id}/remove'>Cancel</a>"
+          if from_search
+            row[5] = "<a href='/cart/#{item.id}/remove?search=true'>Cancel</a>"          
+          else
+            row[5] = "<a href='/cart/#{item.id}/remove'>Cancel</a>"
+          end
         else
-          row[5] = "<a href='/cart/#{item.id}'>Put In Cart</a>"
+          if from_search
+            row[5] = "<a href='/cart/#{item.id}?search=true'>Put In Cart</a>"
+          else
+            row[5] = "<a href='/cart/#{item.id}'>Put In Cart</a>"
+          end
         end
       else
         row[5] = "Loaned"
@@ -37,5 +53,7 @@ class List
     
     return data_table
   end
+  
+  
   
 end

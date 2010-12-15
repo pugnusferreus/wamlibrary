@@ -68,6 +68,9 @@ Wamlibrary::Application.routes.draw do
   end
   
   resources :listings do
+    collection do
+      get 'search'
+    end
     member do
       get 'tojson'
     end

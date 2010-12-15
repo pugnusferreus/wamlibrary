@@ -66,7 +66,12 @@ class CartController < ApplicationController
     @item = @list.item
     
     respond_to do |format|
-      format.html { redirect_to listing_path (item.sub_category.id) }
+      if params[:search] == "true"
+        format.html { redirect_to :controller => "home", :query=> session[:query] }
+      else
+        format.html { redirect_to listing_path (item.sub_category.id) }
+      end
+      
     end
   end
   
@@ -93,7 +98,11 @@ class CartController < ApplicationController
       if not params[:fromcart].nil? and params[:fromcart] == "true"
         format.html { redirect_to :action => "index", :controller => "cart" }
       else
-        format.html { redirect_to listing_path (item.sub_category.id) }
+        if params[:search] == "true"
+          format.html { redirect_to :controller => "home", :query=> session[:query] }
+        else
+          format.html { redirect_to listing_path (item.sub_category.id) }
+        end
       end
     end
   end

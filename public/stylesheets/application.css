@@ -212,6 +212,28 @@ div.field, div.actions {
   border-style: none;
 }
 
+.search_box_wrapper {
+  width: 300px; 
+  height: 30px; 
+  background-color: #ffffff;
+  border: #666666 1px solid;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
+
+}
+
+.search_box {
+  width: 280px; 
+  height: 20px; 
+  background-color: transparent; 
+  position: relative; 
+  top: 5px; 
+  left: 10px; 
+  border-style: none;
+}
+
+
 .text_area_wrapper {
   width: 250px; 
   height: 100px; 
