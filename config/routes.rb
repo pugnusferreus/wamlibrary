@@ -75,6 +75,10 @@ Wamlibrary::Application.routes.draw do
       get 'tojson'
     end
   end
+  
+  resource :terms do
+
+  end
 
   root :to => "home#index"
   
