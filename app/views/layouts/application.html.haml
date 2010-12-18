@@ -25,10 +25,13 @@
             Home &nbsp;
           %a{ :href=>"/users/edit"}
             My Details &nbsp;
-
           - if current_user.enabled?
             %a{ :href=>"/cart/"}
-              Check Out
+              Check Out &nbsp;
+          %a{ :href=>"/terms"}
+            Terms &nbsp;
+          %a{ :href=>"/contact"}
+            Contacts
 
     #container
       #navigation
