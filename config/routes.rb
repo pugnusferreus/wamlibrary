@@ -80,6 +80,10 @@ Wamlibrary::Application.routes.draw do
 
   end
 
+  resource :contact do
+
+  end
+  
   root :to => "home#index"
   
   # The priority is based upon order of creation:
