@@ -13,7 +13,7 @@ class List
     if query.blank?
       @item = Item.where("1 = 2").order("items.name")
     else
-      @item = Item.where("name like ? or description like ? or author like ?","%#{query}%","%#{query}%","%#{query}%").order("items.name")
+      @item = Item.where("name ILIKE ? or description ILIKE ? or author ILIKE ?","%#{query}%","%#{query}%","%#{query}%").order("items.name")
     end
   end
   
