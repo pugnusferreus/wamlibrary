@@ -5,6 +5,28 @@
 - if @item.nil? or @item.count < 1
   No item to check out
 - else
+  .notice_header
+    %img{ :src => "/images/loaned.png", :alt => "Warning" }
+    Before you proceed, here are some reminders:
+  .notice
+    How long can I borrow resources for?
+    %ul
+      %li
+        CD/DVD: 1 week
+      %li
+        Printed Material: 2 weeks
+      %li
+        CD/DVD and Printed materials: 2 weeks
+  .notice
+    How many items can I borrow at any one time?
+    %ul
+      %li
+        2 CDs/DVD or
+      %li
+        2 printed materials or
+      %li
+        1 CD/DVD and 1 printed material        
+    
   %p
     %img{ :src=>"/images/cart.png", :alt=>"Shopping Cart"}
     %b
@@ -19,17 +41,19 @@
         %th
           Author
         %th
-          Description
+          Sub Category
+        %th
+          Category
         %th
           &nbsp;
 
     %tbody
       %tr
-        %td{ :colspan => "4" }
+        %td{ :colspan => "5" }
           Loading data from server
     %tfoot
       %tr
-        %td{ :colspan => "4"}
+        %td{ :colspan => "5"}
 
 %br
 

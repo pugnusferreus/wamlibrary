@@ -254,3 +254,17 @@ div.field, div.actions {
   left: 10px; 
   border-style: none;
 }
+
+.notice_header {
+   color: red;
+   font-size: 16px;     
+}
+
+.notice {
+   margin-top: 10px;
+   font-size: 12px; 
+   color: red;  
+}
+
+.notice ul {
+    margin-top: 1px;
