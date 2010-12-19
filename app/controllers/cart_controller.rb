@@ -15,11 +15,12 @@ class CartController < ApplicationController
       cart_array = Array.new
 
       @items.each do |item|
-        row = Array.new(4)
+        row = Array.new(5)
         row[0] = item.name
         row[1] = item.author
-        row[2] = item.description
-        row[3] = "<a href='/cart/#{item.id}/remove?fromcart=true'>Remove From Cart</a>"
+        row[2] = item.sub_category.name
+        row[3] = item.sub_category.category.name
+        row[4] = "<a href='/cart/#{item.id}/remove?fromcart=true'>Remove From Cart</a>"
         cart_array.push row
       end
       data_table["aaData"] = cart_array

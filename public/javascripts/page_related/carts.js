@@ -8,7 +8,7 @@ $(document).ready(function() {
     "bServerSide": false,
     "sPaginationType": "full_numbers",
     "sAjaxSource": "/cart/tojson",
-    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "150px"},{"sWidth": "250px"},{ "bSortable": false, "bVisible": true,"sWidth": "150px" }]
+    "aoColumns": [ {"sWidth": "150px"},{"sWidth": "150px"},{"sWidth": "250px"},{"sWidth": "250px"},{ "bSortable": false, "bVisible": true,"sWidth": "150px" }]
   } );
 
   $("#list_table_length").hide();
