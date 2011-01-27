@@ -41,7 +41,7 @@ class Item < ActiveRecord::Base
   end
   
   def to_item_due_data_table
-    items = Item.where("current_date > due_date").order("name")
+    items = Item.where("current_date > due_date and loaned = true").order("name")
     data_table = {"sEcho" => 1, "iTotalRecords" => items.count, "iTotalDisplayRecords" => items.count}
     items_array = Array.new
     
