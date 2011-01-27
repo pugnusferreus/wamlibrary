@@ -107,6 +107,8 @@ class Notification < ActionMailer::Base
       The request for item <b>#{item.name} (#{item.index_num})</b> has been accepted by #{accepted_by}
       <br/>
       Please collect your item from your librarian.
+      <br/><br/>
+      Pick up day = Sunday (Please contact your librarian if you're not able to do so)
     HTML
       
     mail(:to => requester_email, :subject => "Your WAM Library request has been accepted") do |format|
@@ -122,7 +124,7 @@ class Notification < ActionMailer::Base
       Your due date is <b>#{due_date.strftime("%Y-%m-%d")}</b>
     HTML
       
-    mail(:to => requester_email, :subject => "Your WAM Library request has been accepted") do |format|
+    mail(:to => requester_email, :subject => "Your WAM Library request has been picked up") do |format|
       format.html { render :text => mail_body }
     end
   end
@@ -130,6 +132,9 @@ class Notification < ActionMailer::Base
   def reject_notification(requester_email,rejected_by, item)
     mail_body = <<-HTML
       The request for item <b>#{item.name} (#{item.index_num})</b> has been rejected by #{rejected_by}
+      <br/>
+      <br/>
+      Please refer to terms of borrowing for further details.
     HTML
       
     mail(:to => requester_email, :subject => "Your WAM Library request has been rejected") do |format|
