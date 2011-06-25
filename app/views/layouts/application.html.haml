@@ -12,7 +12,8 @@
       #header_content
         #banner
           #logo
-            = image_tag 'logo.png', :alt => 'WAM Library'
+            = link_to root_path do
+              = image_tag 'logo.png', :alt => 'WAM Library'
         #login_section
           You are currently logged in as #{current_user.full_name}
           (
